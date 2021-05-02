@@ -21,7 +21,8 @@ import {connect} from 'react-redux'
 import propsTypes from 'prop-types'
 import {SignUp} from '../Action/auth'
 
-const Signup = ({Signup}) => {
+const Signup = ({SignUp}) => {
+
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [name, setname] = useState("")
@@ -32,8 +33,9 @@ const Signup = ({Signup}) => {
     const [imageUploading, setimageUploading] = useState(false)
     const [imageloadingstatus, setimageloadingstatus] = useState(null)
 
+SignUp()
 
-    return (
+return (
         <>
            <Text>Hello Signup</Text> 
         </>

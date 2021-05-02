@@ -1,5 +1,6 @@
-import React,{useEffect} from 'react'
+
 import "react-native-gesture-handler"
+import React,{useEffect} from 'react'
 import AddPost from './screens/Addpost'
 import Home from './screens/Home'
 import Signin from './screens/Signin'
@@ -31,7 +32,7 @@ const App = ({authState}) => {
       console.log(user._user.id)
     dababase()
     .ref(`/user/${user._user.id}`)
-    .on("value",snapshot=>{
+    .on("value",(snapshot)=>{
     dispatch({
           type:SET_USER,
           payload:snapshot.val()

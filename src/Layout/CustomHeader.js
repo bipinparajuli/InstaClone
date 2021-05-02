@@ -15,7 +15,7 @@ import propsTypes from 'prop-types'
 import {signOut} from "../Action/auth"
 
 const CustomHeader = ({navigation,signOut,authState}) => {
-console.log(signOut)
+// console.log(signOut)
     return (
         <>
             <Header
@@ -54,14 +54,14 @@ const mapStateToProps = (state) => ({
     authState:state.auth
 })
 const mapDispatchToProps = () => ({
-    signOut
+    signOut 
 })
 
-// CustomHeader.propsTypes = {
-//     // signOut= propsTypes.func.isRequired,
-// // authState= propsTypes.func.isRequired
+CustomHeader.propsTypes = {
+    signOut= propsTypes.func.isRequired,
+authState= propsTypes.func.isRequired
 
-// }
+}
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(CustomHeader)
