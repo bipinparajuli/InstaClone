@@ -1,25 +1,26 @@
 import React,{useEffect} from 'react'
-import {Text} from 'react-native'
+import "react-native-gesture-handler"
 import AddPost from './screens/Addpost'
 import Home from './screens/Home'
 import Signin from './screens/Signin'
 import Signup from './screens/Signup'
 import CustomHeader from  './Layout/CustomHeader'
-import {IS_USER,IS_AUTHENTICATED,SET_USER} from './Action/action.type'
+import {IS_AUTHENTICATED,SET_USER} from './Action/action.type'
 import {requestPermission} from './Utils/askpermission'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer } from "@react-navigation/native"
 import {connect,useDispatch} from 'react-redux'
 import dababase from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth'
+import EmptyContainer from '../src/components/emptyContainer'
+const Stack = createStackNavigator()
 
 
 const App = ({authState}) => {
   const dispatch = useDispatch()
 
-  const Stack = createStackNavigator()
 
-  const onAuthStateChange =(user)=>{
+  const onAuthStateChanged =(user)=>{
 
     if(user)
     {
@@ -36,10 +37,7 @@ const App = ({authState}) => {
           payload:snapshot.val()
   })
 })      
-  
-
-
-    }
+}
  else{
   dispatch({
     type:IS_AUTHENTICATED,
@@ -50,19 +48,24 @@ const App = ({authState}) => {
   
   useEffect(()=>{
     requestPermission()
-const subscriber =auth().onAuthStateChanged(onAuthStateChange)
+const subscriber =auth().onAuthStateChanged(onAuthStateChanged)
 return subscriber
 
 },[])
 
+if(authState.loading)
+{
+  <EmptyContainer />
+}
   
   return (
     <>
 <NavigationContainer>
   <Stack.Navigator
   screenOptions={
-
-    {header:(props)=><CustomHeader {...props} />}
+    {
+      header:(props)=><CustomHeader {...props} />
+    }
   }
   >
 {authState.authenticated ? (
@@ -84,8 +87,8 @@ return subscriber
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
   authState:state.auth
-}
+})
 
 export default connect(mapStateToProps)( App)

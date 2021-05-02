@@ -3,4 +3,4 @@ import auth from './auth';
 import post from './post';
 
 
-combineReducers({auth,post})
+export default combineReducers({auth,post})

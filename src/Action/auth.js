@@ -61,7 +61,7 @@ export const SignIn = (data) => async (dispatch) => {
     })
 }
 
-export const SignOut = (data) => async (dispatch) => {
+export const signOut = (data) => async (dispatch) => {
  auth().signOut().then(()=>{
     Snackbar.show({
         text:"Signout successfully",
