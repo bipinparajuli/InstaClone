@@ -11,13 +11,23 @@ import {requestPermission} from './Utils/askpermission'
 import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer } from "@react-navigation/native"
 import {connect,useDispatch} from 'react-redux'
+
 import dababase from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth'
+
 import EmptyContainer from '../src/components/emptyContainer'
+
+import { Client } from 'rollbar-react-native'
+const rollbar = new Client('42ad7b194e324b0aa594050cca31d1bc');
+
+
+
+
 const Stack = createStackNavigator()
 
 
 const App = ({authState}) => {
+  
   const dispatch = useDispatch()
 
 
@@ -29,10 +39,11 @@ const App = ({authState}) => {
         type:IS_AUTHENTICATED,
         payload:true
       })
-      console.log(user._user.id)
+      console.log(user._user.uid)
     dababase()
-    .ref(`/user/${user._user.id}`)
+    .ref(`/users/${user._user.uid}`)
     .on("value",(snapshot)=>{
+      console.log("USER_DETAILS",snapshot.val())
     dispatch({
           type:SET_USER,
           payload:snapshot.val()
@@ -56,18 +67,18 @@ return subscriber
 
 if(authState.loading)
 {
-  <EmptyContainer />
+  return <EmptyContainer />
 }
   
   return (
     <>
 <NavigationContainer>
   <Stack.Navigator
-  // screenOptions={
-  //   {
-  //     header:(props)=><CustomHeader {...props} />
-  //   }
-  // }
+  screenOptions={
+    {
+      header:(props)=><CustomHeader {...props} />
+    }
+  }
   >
 {authState.isAuthenticated ? (
   <>
@@ -77,7 +88,7 @@ if(authState.loading)
 
 ):(
 <>
-{/* <Stack.Screen name="Signin" component={Signin} /> */}
+<Stack.Screen name="Signin" component={Signin} />
 <Stack.Screen name="Signup" component={Signup} />
 </>
 

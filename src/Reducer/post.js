@@ -2,22 +2,25 @@ import {SET_POST, ERROR_POST} from './../Action/action.type';
 
 const initialState = {
     loading:true,
-    post:null,
+    posts:null,
     error:false
 }
 
 export default (state= initialState,action)=>{
-switch (action) {
+switch (action.type) {
     case SET_POST:
-return {...state,
-    post:action.payload,
+return {
+    ...state,
+    posts:action.payload,
     error:false,
     loading:false
-
 }        
 
 case ERROR_POST:
-return {...state,error:action.payload,err:false}        
+return {
+    ...state,
+    error:true
+}        
 
     default:
         return state        

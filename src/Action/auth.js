@@ -2,33 +2,34 @@ import auth from '@react-native-firebase/auth'
 import database from '@react-native-firebase/database'
 import Snackbar from 'react-native-snackbar'
 
-export const SignUp = (data) => async (dispatch) => {
+export const signUp = (data) => async (dispatch) => {
 console.log(data);
 
-const {email,password,name,instaName,bio,address,image} = data
+const {email,password,name,instaUserName,bio,image,country} = data
 
     auth().createUserWithEmailAndPassword(email,password)
-    .then(data=>
+    .then((data)=>
         {
             console.log(data);
             database()
-            .ref("/user"+data.user.uid)
+            .ref("/users/"+data.user.uid)
             .set({
                 name,
-                instaName,
-                address,
+                instaUserName,
+                country,
                 bio,
-                image
+                image,
+                uid:data.user.uid
             })
-            .then(()=>{
+            .then(()=>console.log("Data saved successfully"))
                 Snackbar.show({
                     text:"User data set successfully",
                     textColor:"white",
                     backgroundColor:"green"
                 })
             })
-        }
-        )
+        
+        
     .catch((error)=>{
         Snackbar.show({
             text:"SignUp Failed",
@@ -39,13 +40,13 @@ const {email,password,name,instaName,bio,address,image} = data
 
 }
 
-export const SignIn = (data) => async (dispatch) => {
+export const signIn = (data) => async (dispatch) => {
 
     console.log(data);
-    const {emial,password} = data
+    const {email,password} = data
 
     auth().signInWithEmailAndPassword({email,password})
-    .then(data=> {
+    .then((data)=> {
         Snackbar.show({
             text:"Signin successfully",
             textColor:"white",
@@ -61,7 +62,7 @@ export const SignIn = (data) => async (dispatch) => {
     })
 }
 
-export const signOut = (data) => async (dispatch) => {
+export const signOut = () => async (dispatch) => {
  auth().signOut().then(()=>{
     Snackbar.show({
         text:"Signout successfully",

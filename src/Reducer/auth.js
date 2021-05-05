@@ -1,4 +1,4 @@
-import {IS_AUTHENTICATED, IS_USER} from './../Action/action.type';
+import {IS_AUTHENTICATED, SET_USER} from './../Action/action.type';
 
 const initialState = {
     loading:true,
@@ -7,12 +7,20 @@ const initialState = {
 }
 
 export default (state= initialState,action)=>{
-switch (action) {
-    case IS_USER:
-return {...state,user:action.payload,loading:false}        
+switch (action.type) {
+    case SET_USER:
+return {
+    ...state,
+    user:action.payload,
+    loading:false
+}        
 
 case IS_AUTHENTICATED:
-return {...state,isAuthenticated:action.payload}        
+return {
+    ...state,
+    isAuthenticated:action.payload,
+    loading:false
+}        
 
     default:
         return state        

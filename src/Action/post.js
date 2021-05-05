@@ -1,12 +1,14 @@
 import database from '@react-native-firebase/database'
 import {SET_POST,ERROR_POST} from './action.type'
 
-export const getPosts = ()=> async(dispatch) => {
+export const getPosts = () => async (dispatch) => {
  
     try{
 database()
-.ref('./post/')
+.ref('./posts/')
 .on("value",(snapshot)=>{
+
+    console.log('USER DATA: ', snapshot.val())
 
     if(snapshot.val())
     {
