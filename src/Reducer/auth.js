@@ -3,7 +3,7 @@ import {IS_AUTHENTICATED, IS_USER} from './../Action/action.type';
 const initialState = {
     loading:true,
     user:null,
-    authenticated:false
+    isAuthenticated:false
 }
 
 export default (state= initialState,action)=>{
@@ -12,7 +12,7 @@ switch (action) {
 return {...state,user:action.payload,loading:false}        
 
 case IS_AUTHENTICATED:
-return {...state,authenticated:action.payload}        
+return {...state,isAuthenticated:action.payload}        
 
     default:
         return state        

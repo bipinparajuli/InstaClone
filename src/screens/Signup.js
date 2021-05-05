@@ -33,7 +33,7 @@ const Signup = ({SignUp}) => {
     const [imageUploading, setimageUploading] = useState(false)
     const [imageloadingstatus, setimageloadingstatus] = useState(null)
 
-SignUp()
+// SignUp()
 
 return (
         <>
@@ -42,13 +42,9 @@ return (
     )
 }
 
-const mapDispatchToProps = () => {
-    SignUp : (data) => SignUp(data)
-}
 
 
-SignUp.propsTypes = {
-    SignUp = propsTypes.func.isRequired
-}
+
+
 
 export default connect(null,mapDispatchToProps) (Signup)

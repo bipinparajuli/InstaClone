@@ -63,13 +63,13 @@ if(authState.loading)
     <>
 <NavigationContainer>
   <Stack.Navigator
-  screenOptions={
-    {
-      header:(props)=><CustomHeader {...props} />
-    }
-  }
+  // screenOptions={
+  //   {
+  //     header:(props)=><CustomHeader {...props} />
+  //   }
+  // }
   >
-{authState.authenticated ? (
+{authState.isAuthenticated ? (
   <>
 <Stack.Screen name="Home" component={Home} />
 <Stack.Screen name="Addpost" component={AddPost} />
@@ -77,7 +77,7 @@ if(authState.loading)
 
 ):(
 <>
-<Stack.Screen name="Signin" component={Signin} />
+{/* <Stack.Screen name="Signin" component={Signin} /> */}
 <Stack.Screen name="Signup" component={Signup} />
 </>
 
