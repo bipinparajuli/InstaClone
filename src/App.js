@@ -76,7 +76,7 @@ if(authState.loading)
   <Stack.Navigator
   screenOptions={
     {
-      header:(props)=><CustomHeader {...props} />
+      // header:(props)=><CustomHeader {...props} />
     }
   }
   >

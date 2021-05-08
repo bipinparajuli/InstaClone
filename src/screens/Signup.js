@@ -47,4 +47,4 @@ return (
 
 
 
-export default connect(null,mapDispatchToProps) (Signup)
+export default  (Signup)

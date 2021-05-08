@@ -7,7 +7,8 @@ const initialState = {
 }
 
 export default (state= initialState,action)=>{
-switch (action.type) {
+
+    switch (action.type) {
     case SET_USER:
 return {
     ...state,
