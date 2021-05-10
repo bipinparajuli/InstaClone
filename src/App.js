@@ -17,9 +17,8 @@ import auth from '@react-native-firebase/auth'
 
 import EmptyContainer from '../src/components/emptyContainer'
 
-import { Client } from 'rollbar-react-native'
-const rollbar = new Client('42ad7b194e324b0aa594050cca31d1bc');
-
+// import { Client } from 'rollbar-react-native'
+// const rollbar = new Client('42ad7b194e324b0aa594050cca31d1bc');
 
 
 
