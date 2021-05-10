@@ -85,8 +85,9 @@ if(authState.loading)
 
 ):(
 <>
-<Stack.Screen name="Signin" component={Signin} />
 <Stack.Screen name="Signup" component={Signup} />
+<Stack.Screen name="Signin" component={Signin} />
+
 </>
 
 )}
