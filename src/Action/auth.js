@@ -42,11 +42,12 @@ const {email,password,name,instaUserName,bio,image,country} = data
 
 export const signIn = (data) => async (dispatch) => {
 
-    console.log(data);
     const {email,password} = data
+    console.log(typeof(email));
 
-    auth().signInWithEmailAndPassword({email,password})
+    auth().signInWithEmailAndPassword(email,password)
     .then((data)=> {
+        console.log(data);
         Snackbar.show({
             text:"Signin successfully",
             textColor:"white",
@@ -54,6 +55,7 @@ export const signIn = (data) => async (dispatch) => {
         })
     })
     .catch(error=> {
+        console.log(error)
         Snackbar.show({
             text:"Failed to signin",
             textColor:"white",

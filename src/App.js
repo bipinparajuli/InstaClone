@@ -12,7 +12,7 @@ import {createStackNavigator} from "@react-navigation/stack"
 import { NavigationContainer } from "@react-navigation/native"
 import {connect,useDispatch} from 'react-redux'
 
-import dababase from '@react-native-firebase/database'
+import database from '@react-native-firebase/database'
 import auth from '@react-native-firebase/auth'
 
 import EmptyContainer from '../src/components/emptyContainer'
@@ -27,7 +27,7 @@ const App = ({authState}) => {
 
 
   const onAuthStateChanged =(user)=>{
-
+console.log(user);
     if(user)
     {
       dispatch({
@@ -35,7 +35,7 @@ const App = ({authState}) => {
         payload:true
       })
       console.log(user._user.uid)
-    dababase()
+    database()
     .ref(`/users/${user._user.uid}`)
     .on("value",(snapshot)=>{
       console.log("USER_DETAILS",snapshot.val())
@@ -85,9 +85,8 @@ if(authState.loading)
 
 ):(
 <>
-<Stack.Screen name="Signup" component={Signup} />
 <Stack.Screen name="Signin" component={Signin} />
-
+<Stack.Screen name="Signup" component={Signup} />
 </>
 
 )}

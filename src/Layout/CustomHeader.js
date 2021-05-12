@@ -19,7 +19,7 @@ const CustomHeader = ({navigation,signOut,authState}) => {
     return (
         <>
             <Header
-            style={{backgroundColor:"pink"}}
+            style={{backgroundColor:"blue"}}
             >
 <Body>
 <Title>Social App</Title>    
@@ -31,14 +31,14 @@ const CustomHeader = ({navigation,signOut,authState}) => {
 <Button
 transparent
 iconLeft
-onPress={()=>navigation.navigate("AddPost")}
+onPress={()=>navigation.navigate("Addpost")}
 
 >
 <Text style={{color:"#EDBF69"}}>Add Post</Text>
 </Button>
 
 <Button
-onPress={()=> signOut()}
+onPress={()=> console.log("Signout"),signOut()}
 transparent 
 
 >

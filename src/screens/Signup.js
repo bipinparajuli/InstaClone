@@ -34,54 +34,58 @@ const Signup = ({signUp}) => {
     const [instausername, setinstausername] = useState("")
     const [image, setimage] = useState("https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png")
     const [imageUploading, setimageUploading] = useState(false)
-    const [imageloadingstatus, setimageloadingstatus] = useState(null)
+    const [imageloadingstatus,setUploadStatus] = useState(null)
 
 // SignUp()
 const chooseImage = async () => {
- 
-    Imagepicker.showImagePicker(options,(response)=>{
-     console.log("Response",resposne);
- 
-     if(response.didCancel)
-     {
-        console.log("User Cancled");
+  Imagepicker.showImagePicker(options,(response)=>{
+   console.log("Response",response);
 
-     }
-     else if(response.error)
-     {
-        console.log("User Cancled",response.error);
+   if(response.didCancel)
+   {
+      console.log("User Cancled");
 
-     }
-     else if(response.customButton)
-     {
-        console.log("User Cancled",response.customButton);
+   }
+   else if(response.error)
+   {
+      console.log("User Cancled",response.error);
 
-     }
-     else{
+   }
+   else if(response.customButton)
+   {
+      console.log("User Cancled",response.customButton);
 
-        uploadImage(response)
-    }
-    })
-    
+   }
+   else{
+
+      uploadImage(response)
+  }
+  })
+  
 }
 const uploadImage = async (response) => {
- setimageUploading(true)
- const reference = storage().ref(response.fileName)
 
- const task = reference.putFile(response.path)
+setimageUploading(true)
 
- task.on("state_changed",(taskSnapshot)=> {
-     const percentage = (taskSnapshot.bytesTransferred/taskSnapshot.totalBytes) * 1000
+const reference = storage().ref(response.fileName)
 
-    setimageloadingstatus(percentage)
-    })
-    
-    task.then(async ()=> {
-        const url = await reference.getDownloadURL()
+console.log(response,reference);
 
-        setimage(url)
-        setimageUploading(false)
-    })
+const task = reference.putFile(response.path)
+console.log("REFERENCE",task);
+
+task.on("state_changed",(taskSnapshot)=> {
+   const percentage = (taskSnapshot.bytesTransferred/taskSnapshot.totalBytes) * 1000
+
+   setUploadStatus(percentage)
+  })
+  
+  task.then(async ()=> {
+      const url = await reference.getDownloadURL()
+
+      setimage(url)
+      setimageUploading(false)
+  })
 }
 
 const doSignUp = async () => {
