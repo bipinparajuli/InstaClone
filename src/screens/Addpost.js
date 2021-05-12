@@ -147,7 +147,7 @@ return (
               <Input
                 placeholder="location"
                 value={location}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setLocation(text)}
               />
             </Item>
@@ -170,7 +170,7 @@ return (
                 />
                 <Text
                   style={{
-                    color: '#fdcb9e',
+                    color: '#000',
                   }}>
                   Choose Image
                 </Text>
@@ -182,7 +182,7 @@ return (
                 rowSpan={5}
                 placeholder="Some description..."
                 value={description}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setDescription(text)}
               />
             </Item>
@@ -199,7 +199,7 @@ return (
                 }
   const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1b262c',
+    backgroundColor: '#fff',
     flex: 1,
     justifyContent: 'flex-start',
   },

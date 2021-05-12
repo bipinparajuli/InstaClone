@@ -13,7 +13,7 @@ H3
 }
 from "native-base"
 
-import welcome from '../Assets/a.jpg'
+import welcome from '../Assets/welcom.png'
 
 import {connect} from 'react-redux'
 import {signIn} from "../Action/auth"
@@ -33,7 +33,7 @@ const Signin = ({navigation,signIn}) => {
         <>
            <Container style={styles.container}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <H3 style={styles.heading}>Welcome to the Travel-gram Social App</H3>
+        <H3 style={styles.heading}>YOU ARE WELCOME TO INSTAGRAM</H3>
 
         <Image
           source={welcome}
@@ -65,7 +65,7 @@ const Signin = ({navigation,signIn}) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('Signup')}
             style={{marginTop: 10}}>
-            <Text style={{color: '#fff', textAlign: 'center'}}>
+            <Text style={{color: '#000', textAlign: 'center'}}>
               Do not have an account, SignUp here
             </Text>
           </TouchableOpacity>
@@ -78,13 +78,13 @@ const Signin = ({navigation,signIn}) => {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#ffffff',
       flex: 1,
       justifyContent: 'flex-start',
     },
     heading: {
       textAlign: 'center',
-      color: '#fdcb9e',
+      color: '#000',
       marginHorizontal: 5,
       marginTop: 30,
     },

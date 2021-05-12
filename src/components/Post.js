@@ -30,7 +30,12 @@ database()
     }
     
     const downVotePost  =() => {
-        
+      database()
+      .ref(`/posts/${item.id}/vote/${userDetails.uid}`)
+      .set({
+          downvote: 1,
+      })
+      .then(() => console.log("DOWNVOTE"))
     }
 
     useEffect(()=> {
@@ -60,7 +65,7 @@ downVote += 1;
     return (
         <Card
       style={{
-        backgroundColor: '#0f4c75',
+        backgroundColor: '#ffffff',
         borderColor: '#0f4c75',
       }}>
       <CardItem
@@ -72,7 +77,7 @@ downVote += 1;
           <Body>
             <Text
               style={{
-                color: '#fdcb9e',
+                color: '#000',
               }}>
               {item.by}
             </Text>
@@ -95,7 +100,7 @@ downVote += 1;
         <Text
           numberOfLines={2}
           style={{
-            color: '#fff',
+            color: '#000',
           }}>
           {item.description}
         </Text>
@@ -103,7 +108,7 @@ downVote += 1;
 
       <CardItem
         style={{
-          backgroundColor: '#0f4c75',
+          backgroundColor: '#fff',
         }}>
         <Left>
           <Button transparent onPress={upVotePost}>
@@ -114,7 +119,7 @@ downVote += 1;
             />
             <Text
               style={{
-                color: '#fdcb9e',
+                color: '#000',
               }}>
               {upvote}
             </Text>
@@ -127,7 +132,7 @@ downVote += 1;
             />
             <Text
               style={{
-                color: '#fdcb9e',
+                color: '#000',
               }}>
               {downvote}
             </Text>
@@ -142,7 +147,7 @@ downVote += 1;
             }}>
             <Text
               style={{
-                color: '#fdcb9e',
+                color: '#000',
               }}>
               Open in
             </Text>

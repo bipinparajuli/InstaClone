@@ -19,10 +19,10 @@ const CustomHeader = ({navigation,signOut,authState}) => {
     return (
         <>
             <Header
-            style={{backgroundColor:"blue"}}
+            style={{backgroundColor:"#8D3DAF"}}
             >
 <Body>
-<Title>Social App</Title>    
+<Title>INSTAGRAM</Title>    
 </Body>
 <Right>
 

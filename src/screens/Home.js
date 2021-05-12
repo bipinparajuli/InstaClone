@@ -31,7 +31,7 @@ const Home = ({getPosts,postState,userDetails}) => {
     )}
 ListEmptyComponent={()=> (
     <Container style={styles.emptyContainer}>
-        <H1 style={{color:"white"}}>No post found</H1>
+        <H1 style={{color:"black"}}>No post found</H1>
     </Container>
 )}
     />
@@ -42,14 +42,14 @@ ListEmptyComponent={()=> (
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#ffffff',
       justifyContent: 'flex-start',
       padding: 4,
       flex: 1,
     },
     emptyContainer: {
       flex: 1,
-      backgroundColor: '#1b262c',
+      backgroundColor: '#ffffff',
       justifyContent: 'center',
       alignItems: 'center',
     },

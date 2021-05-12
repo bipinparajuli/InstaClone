@@ -114,7 +114,7 @@ return (
               <Input
                 placeholder="name"
                 value={name}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setname(text)}
               />
             </Item>
@@ -122,7 +122,7 @@ return (
               <Input
                 placeholder="email"
                 value={email}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setemail(text)}
               />
             </Item>
@@ -131,7 +131,7 @@ return (
                 placeholder="password"
                 value={password}
                 secureTextEntry={true}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setpassword(text)}
               />
             </Item>
@@ -139,7 +139,7 @@ return (
               <Input
                 placeholder="Instagram user name"
                 value={instausername}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setinstausername(text)}
               />
             </Item>
@@ -147,7 +147,7 @@ return (
               <Input
                 placeholder="Your Short Bio"
                 value={bio}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setbio(text)}
               />
             </Item>
@@ -155,7 +155,7 @@ return (
               <Input
                 placeholder="country"
                 value={country}
-                style={{color: '#eee'}}
+                style={{color: '#000'}}
                 onChangeText={(text) => setcountry(text)}
               />
             </Item>
@@ -172,7 +172,7 @@ return (
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#1b262c',
+      backgroundColor: '#fff',
       flex: 1,
       justifyContent: 'flex-start',
     },
