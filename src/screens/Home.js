@@ -31,7 +31,7 @@ const Home = ({getPosts,postState,userDetails}) => {
     )}
 ListEmptyComponent={()=> (
     <Container style={styles.emptyContainer}>
-        <H1>No post found</H1>
+        <H1 style={{color:"white"}}>No post found</H1>
     </Container>
 )}
     />

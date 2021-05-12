@@ -5,7 +5,7 @@ export const getPosts = () => async (dispatch) => {
  
     try{
 database()
-.ref('./posts/')
+.ref('/posts')
 .on("value",(snapshot)=>{
 
     console.log('USER DATA: ', snapshot.val())
@@ -18,6 +18,7 @@ database()
         })
     }
     else{
+        console.log("CAN'T FOUND ");
         dispatch({
             type:SET_POST,
             payload:[] 

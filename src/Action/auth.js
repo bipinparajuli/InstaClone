@@ -31,6 +31,7 @@ const {email,password,name,instaUserName,bio,image,country} = data
         
         
     .catch((error)=>{
+        console.log(error);
         Snackbar.show({
             text:"SignUp Failed",
             textColor:"white",
