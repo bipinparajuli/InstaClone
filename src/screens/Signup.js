@@ -24,6 +24,8 @@ import {connect} from 'react-redux'
 import propsTypes from 'prop-types'
 import {signUp} from '../Action/auth'
 
+import Snakebar from 'react-native-snackbar';
+
 const Signup = ({signUp}) => {
 
     const [email, setemail] = useState("")
@@ -89,6 +91,16 @@ task.on("state_changed",(taskSnapshot)=> {
 }
 
 const doSignUp = async () => {
+  if(name == ""|| instausername==""||bio==""||country==""||email==""||password==""||image=="")
+  {
+   return Snakebar.show({
+     text:"Please add all filed",
+     textColor:"white",
+     backgroundColor:"red"
+   })
+
+  }
+
     signUp({name,instausername,bio,country,email,password,image})
 
 }

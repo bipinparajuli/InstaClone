@@ -18,6 +18,8 @@ import welcome from '../Assets/welcom.png'
 import {connect} from 'react-redux'
 import {signIn} from "../Action/auth"
 import propTypes from "prop-types"
+import Snakebar from 'react-native-snackbar';
+
 
 const Signin = ({navigation,signIn}) => {
   
@@ -25,7 +27,15 @@ const Signin = ({navigation,signIn}) => {
     const [password, setPassword] = useState("")
 
     const doSignIn = () => {
-   console.log(email,password);
+   if(email == "" || password == "")
+   {
+    return Snakebar.show({
+      text:"Please add all filed",
+      textColor:"white",
+      backgroundColor:"red"
+    })
+   }
+
       signIn({email,password})
     }
     
@@ -46,7 +56,7 @@ const Signin = ({navigation,signIn}) => {
             <Input
               placeholder="enter your registerd email"
               value={email}
-              style={{color: '#eee'}}
+              style={{color: '#000'}}
               onChangeText={(text) => setEmail(text)}
             />
           </Item>
@@ -55,7 +65,7 @@ const Signin = ({navigation,signIn}) => {
               placeholder="enter your registerd password"
               value={password}
               secureTextEntry={true}
-              style={{color: '#eee'}}
+              style={{color: '#000'}}
               onChangeText={(text) => setPassword(text)}
             />
           </Item>

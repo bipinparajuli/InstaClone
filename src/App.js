@@ -2,6 +2,9 @@
 import "react-native-gesture-handler"
 import React,{useEffect} from 'react'
 import AddPost from './screens/Addpost'
+import Main from './screens/LandingPage'
+import Landing from './screens/SplashScreen'
+
 import Home from './screens/Home'
 import Signin from './screens/Signin'
 import Signup from './screens/Signup'
@@ -85,6 +88,7 @@ if(authState.loading)
 
 ):(
 <>
+<Stack.Screen name="Landing" component={Landing} />
 <Stack.Screen name="Signin" component={Signin} />
 <Stack.Screen name="Signup" component={Signup} />
 </>
