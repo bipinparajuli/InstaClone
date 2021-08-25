@@ -38,6 +38,15 @@ onPress={()=>navigation.navigate("Addpost")}
 </Button>
 
 <Button
+transparent
+iconLeft
+onPress={()=>navigation.navigate("Message")}
+
+>
+<Text style={{color:"#EDBF69"}}>Chat</Text>
+</Button>
+
+<Button
 onPress={()=> console.log("Signout"),signOut()}
 transparent 
 

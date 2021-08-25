@@ -43,7 +43,7 @@ const Signin = ({navigation,signIn}) => {
         <>
            <Container style={styles.container}>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <H3 style={styles.heading}>YOU ARE WELCOME TO INSTAGRAM</H3>
+        <H3 style={styles.heading}>YOU ARE WELCOME TO XAVIER</H3>
 
         <Image
           source={welcome}
@@ -69,6 +69,7 @@ const Signin = ({navigation,signIn}) => {
               onChangeText={(text) => setPassword(text)}
             />
           </Item>
+          
           <Button rounded block onPress={doSignIn}>
             <Text>SignIn</Text>
           </Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity,StyleSheet,View,Image, Text,StatusBar,Dimensions} from 'react-native';
-import Logo from '../Assets/logo.svg'
+import Logo from '../Assets/123.png'
 
 const {width,height} = Dimensions.get("window")
 
@@ -13,25 +13,27 @@ export default function SplashScreen({navigation}) {
     <View style={style.container}>
 <StatusBar backgroundColor="green" barStyle="light-content" />
 <View style={style.splash}>
-  <Image source={require("../Assets/splash.png")} />
+  <Image source={require("../Assets/sandeep.png")} />
 </View>
 
 <View style={style.logo}>
-  {/* <Logo height={60}s width={60} /> */}
+  <Image 
+  style={{height:30,width:30}} 
+  source={Logo} />
 </View>
 
 <View style={style.wrapper}>
 <Text style={style.title}>
-  Welcome {'\n'} to Supermat
+  Welcome {'\n'} to Xavier App
   </Text>
 
   <Text style={style.subtitle}>
-  Grocesaries to your door step
+  Fun with colleagues
   </Text>
 
 <TouchableOpacity 
 // onPress={()=>navigation.navigate("Signin")}
-onPress={() => navigation.navigate('Signup')}
+onPress={() => navigation.navigate('Signin')}
 
 style={style.button}>
   <Text style={style.buttonText}>Get Started</Text>
@@ -45,7 +47,7 @@ style={style.button}>
 
 const style = StyleSheet.create({
   container:{
-    backgroundColor:"green",
+    backgroundColor:"#2827CC",
     flex:1,
     justifyContent:"flex-end",
     alignItems:"center",
@@ -67,8 +69,8 @@ const style = StyleSheet.create({
   },
   logo:{
     backgroundColor:"#fff",
-    height:80,
-    width:80,
+    height:8,
+    width:8,
     justifyContent:"center",
     alignItems:"center",
     borderRadius:80

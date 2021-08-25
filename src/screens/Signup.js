@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {StyleSheet,TouchableOpacity,View,ScrollView} from "react-native"
+import {Picker} from '@react-native-picker/picker';
 import {
 Text,
 Image,
@@ -9,8 +10,11 @@ Thumbnail,
 Form,
 Item,
 Input,
-Button
-
+Button,
+Select,
+// Select,
+CheckIcon,
+VStack
 } from 'native-base'
 
 import storage from '@react-native-firebase/storage'
@@ -33,6 +37,7 @@ const Signup = ({signUp}) => {
     const [name, setname] = useState("")
     const [country, setcountry] = useState("")
     const [bio, setbio] = useState("")
+    const [role, setrole] = useState("")
     const [instausername, setinstausername] = useState("")
     const [image, setimage] = useState("https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png")
     const [imageUploading, setimageUploading] = useState(false)
@@ -155,6 +160,20 @@ return (
                 onChangeText={(text) => setinstausername(text)}
               />
             </Item>
+            <Item>
+            <Picker
+        selectedValue={role}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) => setrole(itemValue)}
+      >
+        <Picker.Item label="Teacher" value="Teacher" />
+        <Picker.Item label="Parent" value="Parent" />
+        <Picker.Item label="Student" value="Student" />
+
+      </Picker>
+
+      </Item>
+
             <Item regular style={styles.formItem}>
               <Input
                 placeholder="Your Short Bio"

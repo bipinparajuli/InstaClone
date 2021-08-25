@@ -16,6 +16,8 @@ import database from '@react-native-firebase/database';
 
 
 const Post = ({item,userDetails}) => {
+
+  console.log(item)
     
     const [upvote,setupvote] = useState(0)
     const [downvote,setdownvote] = useState(0)

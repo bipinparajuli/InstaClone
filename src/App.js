@@ -4,6 +4,8 @@ import React,{useEffect} from 'react'
 import AddPost from './screens/Addpost'
 import Main from './screens/LandingPage'
 import Landing from './screens/SplashScreen'
+import Message from './screens/Message'
+
 
 import Home from './screens/Home'
 import Signin from './screens/Signin'
@@ -84,6 +86,8 @@ if(authState.loading)
   <>
 <Stack.Screen name="Home" component={Home} />
 <Stack.Screen name="Addpost" component={AddPost} />
+<Stack.Screen name="Message" component={Message} />
+
 </>
 
 ):(
